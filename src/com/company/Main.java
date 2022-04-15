@@ -43,8 +43,8 @@ public class Main {
         System.out.println(superStore1);
         System.out.println();
 
-        System.out.println("The following example does the same as above, but creates a deep copy superStore1, superStore2, a deep copy creates new instances of complex attributes within the class as well,");
-        System.out.println("so both SuperStore.java objects don't refer to the very same instances of SuperWarehouse.java and SuperCashRegister.java.");
+        System.out.println("The following example instead creates a deep copy of superStore1, superStore2, a deep copy creates new instances of complex attributes within the \"higher\" class as well,");
+        System.out.println("so both SuperStore.java objects don't refer to the very same instances of SuperWarehouse.java and SuperCashRegister.java, so the attributes of those sub-classes can be changed individually.");
         System.out.println();
 
         SuperStore superStore2 = superStore1.clone();
@@ -67,5 +67,34 @@ public class Main {
         System.out.println();
 
         System.out.println("-----------------------------------------------------");
+
+        MegaWarehouse megaWarehouse1 = new MegaWarehouse(500);
+        MegaCashRegister megaCashRegister1 = new MegaCashRegister(54000);
+        MegaStore megaStore1 = new MegaStore("Mega Hornbach", megaWarehouse1, megaCashRegister1);
+
+        System.out.println(megaStore1);
+        System.out.println();
+
+        System.out.println("The following example achieves the same as above, but creates the deep copy of megaStore1, megaStore2, with a copy constructor method instead of Cloneable.java.");
+        System.out.println();
+
+        MegaStore megaStore2 = new MegaStore(megaStore1);
+
+        System.out.println(megaStore1);
+        System.out.println(megaStore2);
+        System.out.println();
+
+        System.out.println("megaStore2.setName(\"Mega Obi\");");
+        System.out.println("megaStore2.getWarehouse().setAreaInSquareMeters(600);");
+        System.out.println("megaStore2.getCashRegister().setMoney(69000);");
+        System.out.println();
+
+        megaStore2.setName("Mega Obi");
+        megaStore2.getWarehouse().setAreaInSquareMeters(600);
+        megaStore2.getCashRegister().setMoney(69000);
+
+        System.out.println(megaStore1);
+        System.out.println(megaStore2);
+        System.out.println();
     }
 }
