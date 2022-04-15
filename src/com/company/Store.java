@@ -1,6 +1,6 @@
 package com.company;
 
-public class Store {
+public class Store implements Cloneable {
 
     private String name;
     private Warehouse warehouse;
@@ -15,6 +15,16 @@ public class Store {
     @Override
     public String toString() {
         return "Store name: " + this.name + ", Size of warehouse: " + this.warehouse.getAreaInSquareMeters() + "m², Amount of cash in register: €" + this.cashRegister.getMoney();
+    }
+
+    @Override
+    public Store clone() {
+        try {
+            return (Store) super.clone();
+        } catch(CloneNotSupportedException e) {
+            System.out.println("Unexpected exception during cloning of Store.java");
+        }
+        return null;
     }
 
     public String getName() {
