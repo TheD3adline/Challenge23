@@ -13,7 +13,7 @@ public class SuperCashRegister implements Cloneable {
         try {
             return (SuperCashRegister) super.clone();
         } catch(CloneNotSupportedException e) {
-            System.out.println("Unexpected problem during clone process of EvenBetterCarEngine.java");
+            System.out.println("Unexpected problem during clone process of SuperCashRegister.java");
         }
         return null;
     }

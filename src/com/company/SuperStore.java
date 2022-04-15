@@ -25,7 +25,7 @@ public class SuperStore implements Cloneable {
             storeCopy.cashRegister = (SuperCashRegister) storeCopy.cashRegister.clone();
             return storeCopy;
         } catch(CloneNotSupportedException e) {
-            System.out.println("Unexpected exception during cloning of Store.java");
+            System.out.println("Unexpected exception during cloning of SuperStore.java");
         }
         return null;
     }
